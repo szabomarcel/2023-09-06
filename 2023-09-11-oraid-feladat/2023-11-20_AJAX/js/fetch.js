@@ -23,12 +23,30 @@ async function getAllUsers() {
 }
 
 function showAllUsers(params){
+    removeAllChild(cards);
     params.forEach(users =>{
-        appendCard(users);
-        card = "<div id=\"cards\" class=\"row\"> <div class=\"card\" style=\"width: 18rem;\"> <img src=\"kepek/letöltés.png\" class=\"card-img-top\" alt=\"kepek/letöltés.png\"> <div class=\"card-body\"> <h5 class=\"card-title\">Card title</h5>" + users.id + "</h5>";
+        appendCard(users);        
     });
 }
 
 function appendCard(users){
-    cards. //append Chilld
+   //-- minden felhasználót egy új div-be helyezünk
+   let userCard = document.createElement("div"); //-- alapértelmezett div-et hozunk létre
+   userCard.className = "card"; //-- beáálítjuk a class tulajdonságot
+   userCard.style.cssText = "width: 18rem;"; //-- beállítjuk a style tulajdonságot
+   /* a card-on lévő többi elemet (h5, img, p, ...) nem egyenként hozzáadjuk, 
+       hanem szövegként az innerHTML tulajdonság segítségével fogjuk 
+       létrehozni és beállítani őket.
+   */
+   let tartalom = `<img src="noimage.jpg" class="card-img-top" alt="noimage.jpg">
+   <div class="card-body">
+       <h5 class="card-title">${user.id}. ${user.username}</h5>
+       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+           card's content.</p>
+       <p>értéke: ${user.darab} db</p>
+       <button class="btn btn-primary" value="${user.id}" onclick="kivalasztottFelhasznaloAdatainakBetolteseBeviteliMezokbe(this.value)">Kiválasztás</button>
+   </div>`;
+   userCard.innerHTML = tartalom;
+
+   cards.appendChild(userCard); //-- létrehozott objektumot behelyezzük a DOM-ba
 }
