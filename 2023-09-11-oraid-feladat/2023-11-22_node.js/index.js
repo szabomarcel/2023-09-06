@@ -3,7 +3,7 @@ const app = express(); //-- http szervert tudunk vele
 
 //átírányitások kezelése miatt kell
 const cors = require('cors');
-app.
+app.use(cors());
 
 // JSON adatok fogadása miatt
 const bodyParser = require('body-parser');
